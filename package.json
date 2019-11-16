@@ -1,6 +1,6 @@
 {
   "name": "bond-app",
-  "homepage": "http://zozo-url.github.io/bond-st",
+  "homepage": "http://bond-st.github.io/bond",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
