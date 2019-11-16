@@ -1,6 +1,6 @@
 {
   "name": "bond-app",
-  "homepage": "http://bond-st.github.io/bond",
+  "homepage": "http://bond-st.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
