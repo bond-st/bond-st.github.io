@@ -1,1 +1,1 @@
-Bond Street website, created with React
+Bond Street website, made by @zozo-url
