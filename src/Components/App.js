@@ -1,17 +1,21 @@
-import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './Home'
 import Edit from './Edit'
 import Unit from './Unit'
-const App = () => (
-  <Router>
+
+function App() {
+  return (
+    <Router>
     <div className='app-container'>
       {/* routing what files display on different url paths */}
-      <Route exact path='/' component={Home} />
-      <Route path='/edit' component={Edit} />
-      <Route path='/unit' component={Unit} />
+      <Routes>
+        <Route exact path='/' element={<Home/>} />
+        <Route path='/edit' element={<Edit/>} />
+        <Route path='/unit' element={<Unit/>} />
+      </Routes>
     </div>
   </Router>
-)
+  );
+}
 
 export default App;

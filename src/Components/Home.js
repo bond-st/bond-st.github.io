@@ -12,7 +12,7 @@ const Home = () => (
       <div className='socials socials-home' align='center'>
         <a href='https://soundcloud.com/bond_st'><i className='fab fa-soundcloud' /></a>
         <a href='https://www.youtube.com/channel/UC_e6NwCw-d-G23fRHIsinqg'><i className='fab fa-youtube' /></a>
-        <a href='https://www.instagram.com/bond__st/?hl=en'><i className='fab fa-instagram' /></a>
+        <a href='https://www.instagram.com/bondst.nz/'><i className='fab fa-instagram' /></a>
       </div>
     </div>
   </div>
