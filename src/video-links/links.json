@@ -5,6 +5,24 @@
             "date": "",
             "url": "https://www.youtube.com/embed/S_EwHp19DUg",
             "description": "[EDIT001]"
+        },
+        {
+            "title": "GRAINS",
+            "date": "10/09/2020",
+            "url": "https://www.youtube.com/embed/NfqkMEU0IaU",
+            "description": "[EDIT002]"
+        },
+        {
+            "title": "DJ DIGITALSUN",
+            "date": "21/02/2021",
+            "url": "https://www.youtube.com/embed/IVClqcUzx8Y",
+            "description": "[EDIT003]"
+        },
+        {
+            "title": "DJ DIGITALSUN",
+            "date": "30/10/2022",
+            "url": "https://www.youtube.com/embed/bvVm36Id7S4",
+            "description": "[EDIT004]"
         }
     ],
     "unit": [
@@ -14,9 +32,10 @@
             "url": "https://www.youtube.com/embed/TFE7fJLVwZ0",
             "description": "[UNIT001]"
         },
-        {   "title": "CURRENT BIAS",
+        {   
+            "title": "CURRENT BIAS",
             "date": "16/01/20",
-            "url": "https://youtu.be/zoUw1ea8QzA",
+            "url": "https://www.youtube.com/embed/zoUw1ea8QzA",
             "description": "[UNIT002]"
         }
     ]
