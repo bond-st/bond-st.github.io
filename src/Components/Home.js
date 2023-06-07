@@ -13,6 +13,7 @@ const Home = () => (
         <a href='https://soundcloud.com/bond_st'><i className='fab fa-soundcloud' /></a>
         <a href='https://www.youtube.com/channel/UC_e6NwCw-d-G23fRHIsinqg'><i className='fab fa-youtube' /></a>
         <a href='https://www.instagram.com/bondst.nz/'><i className='fab fa-instagram' /></a>
+        <a href='https://www.mixcloud.com/BondST/'><i className='fab fa-mixcloud' /></a>
       </div>
     </div>
   </div>
