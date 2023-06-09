@@ -25,6 +25,37 @@
             "description": "[EDIT004]"
         }
     ],
+    "misc" : [
+        {
+            "title": "Full Send",
+            "date": "20/05/2023",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=684472741/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/",
+            "description": ""
+        },
+        {
+            "title": "Flying toward",
+            "date": "09/05/2023",
+            "url": "https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FMouthfullRadio%2Fflying-toward-w-dj-digitalsun-arcangel-may-10th-2023%2F",
+            "description": ""
+        },
+        {
+            "title": "DUDE WHERE'S MY DRILL??",
+            "date": "19/11/2022",
+            "url": "https://www.youtube.com/embed/T2lRwYqKszE",
+            "description": ""
+        },
+        {
+            "title": "Bodyache - Ode to Dysphoria",
+            "date": "08/01/2022",
+            "url": "https://www.youtube.com/embed/n44ngMXxLmo",
+            "description": "Bodyache - Ode to Dysphoria (ft. Hayley J Bender & .zoey)"
+        },
+        {
+            "title": "The Collector",
+            "date": "07/06/2020",
+            "url": "https://player.vimeo.com/video/426712933?h=250ef145bc"
+        }
+    ],
     "unit": [
         {
             "title": "LUMEN LUX",

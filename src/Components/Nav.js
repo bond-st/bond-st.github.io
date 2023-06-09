@@ -28,6 +28,16 @@ const Nav = () => (
           <Link to={'/unit#' + video.title} className='menu-link nav-menu-link sub-link'>{video.title}</Link>
         </div>
       })}
+      {/* misc link  */}
+      {window.location.href.split('#')[1] === '/misc' ? 
+      <Link to='/misc' className='menu-link nav-menu-link'><p className='bold-title'>MISC</p></Link> 
+      : <Link to='/misc' className='menu-link nav-menu-link'><p>MISC</p></Link>}
+      {/* misc sub-menu  */}
+      {window.location.href.split('#')[1] === '/misc' && links.misc.map(video => {
+        return <div className='sub-menu'>
+          <Link to={'/misc#' + video.title} className='menu-link nav-menu-link sub-link'>{video.title}</Link>
+        </div>
+      })}
 
       {/* mobile version of sub-menu */}
       {window.location.href.split('#')[1] === '/edit' && links.edit.map(video => {
@@ -38,6 +48,11 @@ const Nav = () => (
       {window.location.href.split('#')[1] === '/unit' && links.unit.map(video => {
         return <div className='sub-menu sub-menu-mobile'>
           <Link to={'/unit#' + video.title} className='menu-link nav-menu-link sub-link-mobile'>{video.title}</Link>
+        </div>
+      })}
+      {window.location.href.split('#')[1] === '/misc' && links.misc.map(video => {
+        return <div className='sub-menu sub-menu-mobile'>
+          <Link to={'/misc#' + video.title} className='menu-link nav-menu-link sub-link-mobile'>{video.title}</Link>
         </div>
       })}
     </div>
