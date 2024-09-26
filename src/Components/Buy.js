@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Buy.css";
 
 const Buy = () => {
@@ -6,6 +7,9 @@ const Buy = () => {
   const [modalImage, setModalImage] = useState(null);
   const [total, setTotal] = useState("97.5");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkedOption = document.querySelector(
@@ -51,6 +55,8 @@ const Buy = () => {
       return;
     }
 
+    setIsLoading(true);
+
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbxVj2B5OI4rupIY22ctjhY1sO9lkDl-tNgd3ZQHXtbFihBRcYSDkkwVzQ1L_EqM01xJXQ/exec",
@@ -66,7 +72,7 @@ const Buy = () => {
 
       if (response.type === "opaque") {
         setFormSubmitted(true);
-        alert("Order submitted successfully!");
+        setShowModal(true);
         event.target.reset();
       } else {
         throw new Error("Unexpected response");
@@ -74,7 +80,17 @@ const Buy = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("An error occurred. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleBondClick = () => {
+    navigate("/");
   };
 
   return (
@@ -231,8 +247,16 @@ const Buy = () => {
               </div>
             </div>
 
-            <button type="submit" disabled={formSubmitted}>
-              {formSubmitted ? "Order Submitted" : "Submit pre-order"}
+            <button
+              className="submit-button"
+              type="submit"
+              disabled={formSubmitted || isLoading}
+            >
+              {isLoading
+                ? "Submitting..."
+                : formSubmitted
+                ? "Order Submitted"
+                : "Submit pre-order"}
             </button>
           </form>
         </div>
@@ -245,6 +269,22 @@ const Buy = () => {
           <div className="modal" onClick={closeModal}>
             <span className="close">&times;</span>
             <img className="modal-content" src={modalImage} alt="Modal" />
+          </div>
+        )}
+
+        {showModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <img src="/CCT001/walkers.png" alt="Walkers" />
+              <h2>Thank you for your order.</h2>
+              <p>You will be contacted with bank transfer information</p>
+              <p>-CC</p>
+              <div className="modal-buttons">
+                <button className="modal-button" onClick={handleBondClick}>
+                  Bond
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
