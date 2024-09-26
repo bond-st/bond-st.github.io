@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'Harbour-bold';
-  src: url('./font/HarbourBold.ttf');
+  font-family: "Harbour-bold";
+  src: url("./font/HarbourBold.ttf");
 }
 @font-face {
-  font-family: 'Harbour-light';
-  src: url('./font/HarbourLight.ttf');
+  font-family: "Harbour-light";
+  src: url("./font/HarbourLight.ttf");
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Harbour-bold', sans-serif;
+  font-family: "Harbour-bold", sans-serif;
   background-color: white;
   color: black;
   transition: 0s;
@@ -21,8 +21,8 @@ body {
   width: 100vw;
   padding-top: 10em;
   background-image: url("house.gif");
-background-attachment: fixed; 
-position: fixed;
+  background-attachment: fixed;
+  position: fixed;
   left: 0px;
   top: 0px;
   z-index: -1;
@@ -37,18 +37,18 @@ position: fixed;
   padding-top: 30vh;
 }
 
- .menu-link {  
+.menu-link {
   display: inline-block;
-  letter-spacing:0.6em;
+  letter-spacing: 0.6em;
   text-decoration: none;
   color: black;
- }
- .menu-link:visited {
+}
+.menu-link:visited {
   text-decoration: underline;
- }
- .menu-link:hover {
+}
+.menu-link:hover {
   transition: 0.7s;
-   color: red;
+  color: red;
 }
 .home-menu-link {
   padding-right: 1.8em;
@@ -85,10 +85,10 @@ position: fixed;
   .home-container {
     padding-top: 0vh;
   }
-.home-menu {
-  margin-top: 0em;
-}
-.home-menu-link {
+  .home-menu {
+    margin-top: 0em;
+  }
+  .home-menu-link {
     display: block;
     text-decoration: none;
     font-size: 1.5em;
@@ -100,11 +100,11 @@ position: fixed;
     margin-top: 4em !important;
     width: 100vw !important;
   }
-.socials-home i {
-  width: 25%;
-  padding: 0;
+  .socials-home i {
+    width: 25%;
+    padding: 0;
+  }
 }
- }
 
 /* nav */
 .nav {
@@ -112,31 +112,30 @@ position: fixed;
   display: inline-block;
   position: fixed;
   margin: 2em 0em 0em 2em;
-  
 }
 .logo-nav {
   display: block;
   max-width: 11em;
 }
 .nav-menu-link {
-  display: block;  
+  display: block;
   padding-left: 2em;
 }
 .nav-menu-link p {
   margin-left: -0.3em;
 }
 .sub-menu {
-  font-family: 'Harbour-light';
+  font-family: "Harbour-light";
   font-size: 0.7em;
-margin-left: 3em;
-margin-top: 0.2em;
-letter-spacing:0.3em;
-  }
+  margin-left: 3em;
+  margin-top: 0.2em;
+  letter-spacing: 0.3em;
+}
 .sub-menu-mobile {
-  display:none;
+  display: none;
 }
 .sub-link-mobile {
-  display:none;
+  display: none;
 }
 .sub-link {
   padding: 0.1em;
@@ -147,7 +146,7 @@ letter-spacing:0.3em;
 @media only screen and (max-width: 767px) {
   /* Nav for mobile phones: */
   .sub-menu {
-    display:none;
+    display: none;
     margin-left: 0em;
     margin-top: 0em;
   }
@@ -155,42 +154,42 @@ letter-spacing:0.3em;
     display: none;
   }
   .nav {
-  display: block;
-  position: static;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  align-content: center;
-}
-.logo-nav {
-  margin-left: auto; 
-  margin-right: auto;
-  margin-top: 2em;
-  max-width: 15em;
-}
-.nav-menu {
-  width: 100%;
-}
-.nav-menu-link{
-  display: inline-block;
-  padding-left: 0.5em;
-  width: 40%;
-}
-.nav-menu-link p {
-margin-left: 0em;
-text-align: center;
-margin-bottom: 2em;
-}
-.sub-menu-mobile {
-  display: block;
-}
-.sub-link-mobile {
-  padding-top: 0.5em;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1em;
-}
+    display: block;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-content: center;
+  }
+  .logo-nav {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    max-width: 15em;
+  }
+  .nav-menu {
+    width: 100%;
+  }
+  .nav-menu-link {
+    display: inline-block;
+    padding-left: 0.5em;
+    width: 40%;
+  }
+  .nav-menu-link p {
+    margin-left: 0em;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  .sub-menu-mobile {
+    display: block;
+  }
+  .sub-link-mobile {
+    padding-top: 0.5em;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+  }
 }
 /* info */
 .info {
@@ -201,8 +200,8 @@ margin-bottom: 2em;
   letter-spacing: 0.3em;
 }
 .info-text {
- width: 40%;
- text-align: justify;
+  width: 40%;
+  text-align: justify;
 }
 .socials {
   display: block;
@@ -220,7 +219,7 @@ margin-bottom: 2em;
 .socials i:hover {
   color: red;
 }
-@media only screen  and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   /* Info for mobile phones: */
   .info {
     font-size: 1em;
@@ -229,32 +228,32 @@ margin-bottom: 2em;
     letter-spacing: 0.3em;
   }
   .info-text {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 3em;
-   }
-   .socials {
-     width: 100%;
-     margin: auto;
-     margin-bottom: 0rem
-   }
-} 
+    width: 80%;
+    margin: auto;
+    margin-bottom: 3em;
+  }
+  .socials {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0rem;
+  }
+}
 /* edit and unit */
-.video-div {                                    
+.video-div {
   display: block;
-padding-top: 6.6em; 
+  padding-top: 6.6em;
   padding-right: 3em;
   color: black;
 }
 .video-div h1 {
-  letter-spacing:0.3em;
+  letter-spacing: 0.3em;
   font-weight: normal;
   margin-left: auto;
   text-decoration: none;
   font-size: 1em;
 }
 .video-div p {
-  letter-spacing:0.17em;
+  letter-spacing: 0.17em;
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
@@ -267,18 +266,18 @@ padding-top: 6.6em;
 }
 
 .video-info {
-  font-family: 'Harbour-light', san-serif;
+  font-family: "Harbour-light", san-serif;
 }
 
 @media only screen and (max-width: 767px) {
   /* Edit/nav for mobile phones: */
-.video-div {
-  text-align: center;
-  left: auto;
-  right: auto;
-  padding-top: 2.5em;
-  padding-right: 0em;
-}
+  .video-div {
+    text-align: center;
+    left: auto;
+    right: auto;
+    padding-top: 2.5em;
+    padding-right: 0em;
+  }
   .video-div h1 {
     display: inline-block;
     margin-left: auto;
@@ -288,20 +287,29 @@ padding-top: 6.6em;
     width: 45%;
   }
   .video-date {
-display: inline-block;
-text-align:right;
-margin-left: auto;
-margin-right: auto;
-width: 45%;
+    display: inline-block;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
   }
   .video {
     display: block;
     width: 100vw;
     height: 35vh;
   }
-.video-info {
-  display:block;
-  width: 100%;
-  text-align: center;
+  .video-info {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }
+
+.walkers {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("./walkers.png");
+  background-size: cover;
+  background-position: center;
 }

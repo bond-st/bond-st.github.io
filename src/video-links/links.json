@@ -1,5 +1,5 @@
 {
-    "edit" : [
+    "edit": [
         {
             "title": "TRASH II",
             "date": "",
@@ -25,7 +25,13 @@
             "description": "[EDIT004]"
         }
     ],
-    "misc" : [
+    "misc": [
+        {
+            "title": "CCT001",
+            "date": "13/10/2024",
+            "url": "",
+            "isInternal": true
+        },
         {
             "title": "Full Send",
             "date": "20/05/2023",
@@ -63,7 +69,7 @@
             "url": "https://www.youtube.com/embed/TFE7fJLVwZ0",
             "description": "[UNIT001]"
         },
-        {   
+        {
             "title": "CURRENT BIAS",
             "date": "16/01/20",
             "url": "https://www.youtube.com/embed/zoUw1ea8QzA",
