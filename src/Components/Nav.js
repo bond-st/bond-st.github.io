@@ -1,25 +1,36 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 import logo from "../images/logo-black.png";
+import logoWhite from "../images/bond-logo-white.png";
+import walkers from "../images/walkers.png";
 import links from "../video-links/links.json";
 
 // This is where the code for the side menu is
 const Nav = () => {
-  const isBuyPage = true;
+  const location = useLocation();
+  const isBuyPage = location.pathname === "/CCT001";
+
+  const isHomePage = location.pathname === "/";
+
+  if (isHomePage) {
+    return null;
+  }
 
   // Unique nav styling for the buy page only.
   if (isBuyPage) {
     return (
-      <div className="nav">
+      <div className="nav buy-nav">
         <Link to="/">
-          <img src={logo} alt="Bond Street logo" className="logo-nav" />
+          <img width={190} height={76} src={logoWhite} alt="Bond Street logo" />
         </Link>
         <Link
-          className="walkers"
-          href="https://instagram.com/callcentre.zip"
+          className="walkers-link"
+          to="https://instagram.com/callcentre.zip"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          Hey
+          <img src={walkers} alt="Walkers" className="walkers-img" />
         </Link>
       </div>
     );
@@ -27,125 +38,110 @@ const Nav = () => {
 
   return (
     <div className="nav">
-      {/* edit link  */}
       <Link to="/">
         <img src={logo} alt="Bond Street logo" className="logo-nav" />
       </Link>
       <div className="menu nav-menu">
-        {window.location.href.split("#")[1] === "/edit" ? (
-          <Link to="/edit" className="menu-link nav-menu-link">
-            <p className="bold-title">EDIT</p>
-          </Link>
-        ) : (
-          <Link to="/edit" className="menu-link nav-menu-link">
-            <p>EDIT</p>
-          </Link>
-        )}
-        {/*  edit sub-menu */}
-        {window.location.href.split("#")[1] === "/edit" &&
-          links.edit.map((video) => {
-            return (
-              <div className="sub-menu">
-                <Link
-                  to={"/edit#" + video.title}
-                  className="menu-link nav-menu-link sub-link"
-                >
-                  {video.title}
-                </Link>
-              </div>
-            );
-          })}
-        {/* unit link  */}
-        {window.location.href.split("#")[1] === "/unit" ? (
-          <Link to="/unit" className="menu-link nav-menu-link">
-            <p className="bold-title">UNIT</p>
-          </Link>
-        ) : (
-          <Link to="/unit" className="menu-link nav-menu-link">
-            <p>UNIT</p>
-          </Link>
-        )}
-        {/* unit sub-menu  */}
-        {window.location.href.split("#")[1] === "/unit" &&
-          links.unit.map((video) => {
-            return (
-              <div className="sub-menu">
-                <Link
-                  to={"/unit#" + video.title}
-                  className="menu-link nav-menu-link sub-link"
-                >
-                  {video.title}
-                </Link>
-              </div>
-            );
-          })}
-        {/* misc link  */}
-        {window.location.href.split("#")[1] === "/misc" ? (
-          <Link to="/misc" className="menu-link nav-menu-link">
-            <p className="bold-title">MISC</p>
-          </Link>
-        ) : (
-          <Link to="/misc" className="menu-link nav-menu-link">
-            <p>MISC</p>
-          </Link>
-        )}
-        {/* misc sub-menu  */}
-        {window.location.href.split("#")[1] === "/misc" &&
-          links.misc.map((video) => {
-            return (
-              <div className="sub-menu">
-                <Link
-                  to={"/misc#" + video.title}
-                  className="menu-link nav-menu-link sub-link"
-                >
-                  {video.title}
-                </Link>
-              </div>
-            );
-          })}
+        {/* Buy link */}
 
-        {/* mobile version of sub-menu */}
-        {window.location.href.split("#")[1] === "/edit" &&
-          links.edit.map((video) => {
-            return (
-              <div className="sub-menu sub-menu-mobile">
-                <Link
-                  to={"/edit#" + video.title}
-                  className="menu-link nav-menu-link sub-link-mobile"
-                >
-                  {video.title}
-                </Link>
-              </div>
-            );
-          })}
-        {window.location.href.split("#")[1] === "/unit" &&
-          links.unit.map((video) => {
-            return (
-              <div className="sub-menu sub-menu-mobile">
-                <Link
-                  to={"/unit#" + video.title}
-                  className="menu-link nav-menu-link sub-link-mobile"
-                >
-                  {video.title}
-                </Link>
-              </div>
-            );
-          })}
-        {window.location.href.split("#")[1] === "/misc" &&
-          links.misc.map((video) => {
-            return (
-              <div className="sub-menu sub-menu-mobile">
-                <Link
-                  to={"/misc#" + video.title}
-                  className="menu-link nav-menu-link sub-link-mobile"
-                >
-                  {video.title}
-                </Link>
-              </div>
-            );
-          })}
+        {/* Edit link */}
+        <Link to="/edit" className="menu-link nav-menu-link">
+          <p className={location.pathname === "/edit" ? "bold-title" : ""}>
+            EDIT
+          </p>
+        </Link>
+        {/* Edit sub-menu */}
+        {location.pathname === "/edit" &&
+          links.edit.map((video) => (
+            <div className="sub-menu" key={video.title}>
+              <Link
+                to={"/edit#" + video.title}
+                className="menu-link nav-menu-link sub-link"
+              >
+                {video.title}
+              </Link>
+            </div>
+          ))}
+        {/* Unit link */}
+        <Link to="/unit" className="menu-link nav-menu-link">
+          <p className={location.pathname === "/unit" ? "bold-title" : ""}>
+            UNIT
+          </p>
+        </Link>
+
+        {/* Unit sub-menu */}
+        {location.pathname === "/unit" &&
+          links.unit.map((video) => (
+            <div className="sub-menu" key={video.title}>
+              <Link
+                to={"/unit#" + video.title}
+                className="menu-link nav-menu-link sub-link"
+              >
+                {video.title}
+              </Link>
+            </div>
+          ))}
+        {/* Misc link */}
+        <Link to="/misc" className="menu-link nav-menu-link">
+          <p className={location.pathname === "/misc" ? "bold-title" : ""}>
+            MISC
+          </p>
+        </Link>
+        {/* Misc sub-menu */}
+        {location.pathname === "/misc" &&
+          links.misc.map((video) => (
+            <div className="sub-menu" key={video.title}>
+              <Link
+                to={"/misc#" + video.title}
+                className="menu-link nav-menu-link sub-link"
+              >
+                {video.title}
+              </Link>
+            </div>
+          ))}
+
+        {/* Mobile version of sub-menu */}
+        {location.pathname === "/edit" &&
+          links.edit.map((video) => (
+            <div className="sub-menu sub-menu-mobile" key={video.title}>
+              <Link
+                to={"/edit#" + video.title}
+                className="menu-link nav-menu-link sub-link-mobile"
+              >
+                {video.title}
+              </Link>
+            </div>
+          ))}
+        {location.pathname === "/unit" &&
+          links.unit.map((video) => (
+            <div className="sub-menu sub-menu-mobile" key={video.title}>
+              <Link
+                to={"/unit#" + video.title}
+                className="menu-link nav-menu-link sub-link-mobile"
+              >
+                {video.title}
+              </Link>
+            </div>
+          ))}
+        {location.pathname === "/misc" &&
+          links.misc.map((video) => (
+            <div className="sub-menu sub-menu-mobile" key={video.title}>
+              <Link
+                to={"/misc#" + video.title}
+                className="menu-link nav-menu-link sub-link-mobile"
+              >
+                {video.title}
+              </Link>
+            </div>
+          ))}
+        <Link to="/CCT001" className="menu-link nav-menu-link">
+          <p className={location.pathname === "/CCT001" ? "bold-title" : ""}>
+            CCT001
+          </p>
+        </Link>
       </div>
     </div>
   );
 };
+
 export default Nav;

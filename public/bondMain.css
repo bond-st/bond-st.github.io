@@ -3,6 +3,10 @@
   src: url("./font/HarbourBold.ttf");
 }
 @font-face {
+  font-family: "Harbour-medium";
+  src: url("./font/HarbourMedium.ttf");
+}
+@font-face {
   font-family: "Harbour-light";
   src: url("./font/HarbourLight.ttf");
 }
@@ -108,26 +112,38 @@ body {
 
 /* nav */
 .nav {
-  background-color: white;
-  display: inline-block;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: fixed;
-  margin: 2em 0em 0em 2em;
+  top: 0;
+  left: 0;
+  padding: 2em;
+  z-index: 1000;
 }
 .logo-nav {
   display: block;
   max-width: 11em;
+  margin-bottom: 1em;
+}
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .nav-menu-link {
   display: block;
-  padding-left: 2em;
+  padding-left: 0;
+  margin-bottom: 0.5em;
 }
 .nav-menu-link p {
-  margin-left: -0.3em;
+  margin: 0;
 }
 .sub-menu {
   font-family: "Harbour-light";
   font-size: 0.7em;
-  margin-left: 3em;
+  margin-left: 1em;
   margin-top: 0.2em;
   letter-spacing: 0.3em;
 }
@@ -143,32 +159,46 @@ body {
 .bold-title {
   color: red !important;
 }
+
+/* Buy page nav styles */
+.buy-nav {
+  background-color: black;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+  right: 0;
+}
+
+.walkers-link {
+  display: block;
+}
+
+.walkers-img {
+  max-height: 3em;
+  width: auto;
+}
+
 @media only screen and (max-width: 767px) {
   /* Nav for mobile phones: */
-  .sub-menu {
-    display: none;
-    margin-left: 0em;
-    margin-top: 0em;
-  }
-  .sub-link {
-    display: none;
-  }
   .nav {
-    display: block;
+    flex-direction: column;
     position: static;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    align-content: center;
+    align-items: center;
+    padding: 1em;
   }
   .logo-nav {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
+    margin-top: 1em;
     max-width: 15em;
   }
   .nav-menu {
     width: 100%;
+    align-items: center;
   }
   .nav-menu-link {
     display: inline-block;
@@ -176,9 +206,11 @@ body {
     width: 40%;
   }
   .nav-menu-link p {
-    margin-left: 0em;
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+  }
+  .sub-menu {
+    display: none;
   }
   .sub-menu-mobile {
     display: block;
@@ -189,6 +221,17 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
+  }
+
+  /* Buy page nav styles for mobile */
+  .buy-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .walkers-img {
+    max-height: 2em;
   }
 }
 /* info */
