@@ -4,13 +4,15 @@ import "./Buy.css";
 const Buy = () => {
   const [showAddress, setShowAddress] = useState(true);
   const [modalImage, setModalImage] = useState(null);
+  const [total, setTotal] = useState("97.5");
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
-    // Initialize the address field visibility based on the default checked option
     const checkedOption = document.querySelector(
       'input[name="shipping"]:checked'
     );
     setShowAddress(checkedOption?.value !== "pickup");
+    updateTotal(checkedOption?.value);
   }, []);
 
   const toggleAddressField = (show) => {
@@ -23,6 +25,56 @@ const Buy = () => {
 
   const closeModal = () => {
     setModalImage(null);
+  };
+
+  const updateTotal = (shippingOption) => {
+    if (shippingOption === "pickup") {
+      setTotal("90.0");
+    } else if (shippingOption === "domestic") {
+      setTotal("97.5");
+    } else if (shippingOption === "international") {
+      setTotal("90.0 + shipping");
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formObject = Object.fromEntries(formData.entries());
+
+    if (
+      !formObject.name ||
+      !formObject.email ||
+      (showAddress && !formObject["postal-address"])
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxVj2B5OI4rupIY22ctjhY1sO9lkDl-tNgd3ZQHXtbFihBRcYSDkkwVzQ1L_EqM01xJXQ/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formObject),
+        }
+      );
+
+      if (response.type === "opaque") {
+        setFormSubmitted(true);
+        alert("Order submitted successfully!");
+        event.target.reset();
+      } else {
+        throw new Error("Unexpected response");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -63,7 +115,7 @@ const Buy = () => {
             </div>
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="selector-container">
               <div className="selector-title">{"//"} size</div>
               <div className="selector-selector">
@@ -75,6 +127,7 @@ const Buy = () => {
                       name="size"
                       value={size}
                       defaultChecked={size === "L"}
+                      required
                     />
                     <label htmlFor={`size-${size.toLowerCase()}`}>{size}</label>
                   </div>
@@ -100,6 +153,7 @@ const Buy = () => {
                       id={`black${num}`}
                       name="color"
                       value={`black${num}`}
+                      required
                     />
                     <label htmlFor={`black${num}`}>BLACK</label>
                   </div>
@@ -130,7 +184,11 @@ const Buy = () => {
                       name="shipping"
                       value={option.id}
                       defaultChecked={option.id === "domestic"}
-                      onChange={() => toggleAddressField(option.value)}
+                      onChange={() => {
+                        toggleAddressField(option.value);
+                        updateTotal(option.id);
+                      }}
+                      required
                     />
                     <label htmlFor={option.id}>{option.label}</label>
                   </div>
@@ -140,7 +198,7 @@ const Buy = () => {
 
             <div>
               <div className="selector-title">{"//"} $total</div>
-              <div className="total-price">100.00</div>
+              <div className="total-price">{total}</div>
               <div className="total-price-note">
                 Note: This is a pre-order. If demand is not met, you will be
                 issued a refund
@@ -151,7 +209,7 @@ const Buy = () => {
               <h1 className="info-title">Info</h1>
               <div className="input-group">
                 <div className="input-label">{"//"} name</div>
-                <input type="text" id="name" name="name" />
+                <input type="text" id="name" name="name" required />
               </div>
               {showAddress && (
                 <div id="postal-address-group" className="input-group">
@@ -160,19 +218,22 @@ const Buy = () => {
                     type="text"
                     id="postal-address"
                     name="postal-address"
+                    required
                   />
                 </div>
               )}
               <div className="input-group">
                 <div className="input-label">{"//"} email</div>
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" required />
               </div>
               <div className="info-footer">
                 You will be contacted with bank transfer information
               </div>
             </div>
 
-            <button type="submit">Submit pre-order</button>
+            <button type="submit" disabled={formSubmitted}>
+              {formSubmitted ? "Order Submitted" : "Submit pre-order"}
+            </button>
           </form>
         </div>
         <div
