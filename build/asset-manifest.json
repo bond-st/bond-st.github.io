@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.21e9277d.css",
+    "main.js": "/static/js/main.1e07d805.js",
+    "static/media/front.png": "/static/media/front.d2a40fc07fe596ae3eb4.png",
+    "static/media/back.png": "/static/media/back.b6da78ed3fa10456bf04.png",
+    "static/media/logo-black.png": "/static/media/logo-black.10a3991ac85ee5eeb097.png",
+    "static/media/bond-logo-white.png": "/static/media/bond-logo-white.4fae64dd610d3e17106d.png",
+    "index.html": "/index.html",
+    "main.21e9277d.css.map": "/static/css/main.21e9277d.css.map",
+    "main.1e07d805.js.map": "/static/js/main.1e07d805.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.21e9277d.css",
+    "static/js/main.1e07d805.js"
+  ]
+}
