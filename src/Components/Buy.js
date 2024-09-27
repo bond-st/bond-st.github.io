@@ -169,6 +169,7 @@ const Buy = () => {
                       id={`black${num}`}
                       name="color"
                       value={`black${num}`}
+                      defaultChecked={num === 1}
                       required
                     />
                     <label htmlFor={`black${num}`}>BLACK</label>
